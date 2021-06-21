@@ -1782,3 +1782,12 @@ section {
 .contact-info span{
   color: #001524;
 }
+.menu-setting{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+.menu-image{
+  width: 60px;
+  border-radius: 20px;
+}
