@@ -174,7 +174,14 @@
   /**
    * Menu isotope and filter
    */
+  
+
+
+
+
   window.addEventListener('load', () => {
+     
+
     let menuContainer = select('.menu-container');
     if (menuContainer) {
       let menuIsotope = new Isotope(menuContainer, {
@@ -182,19 +189,31 @@
         layoutMode: 'fitRows'
       });
 
-      let menuFilters = select('#menu-flters li', true);
+//trying
+ let val=document.getElementById('default')
+       // val.classList.add('filter-active');
 
-      on('click', '#menu-flters li', function(e) {
-        e.preventDefault();
-        menuFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
+        menuIsotope.arrange({
+          filter: val.getAttribute('data-filter')
         });
-        this.classList.add('filter-active');
+       menuIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+//
+
+      let menuFilters = select('#menu-flters li', true);
+     on('click', '#menu-flters li', function(e) {
+       //e.preventDefault();
+        //menuFilters.forEach(function(el) {
+          //el.classList.remove('filter-active');
+        //});
+       // let val=document.getElementById('default')
+        //this.classList.add('filter-active');
 
         menuIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        menuIsotope.on('arrangeComplete', function() {
+       menuIsotope.on('arrangeComplete', function() {
           AOS.refresh()
         });
       }, true);
