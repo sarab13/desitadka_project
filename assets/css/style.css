@@ -960,7 +960,13 @@ section {
   justify-content: space-between;
   position: relative;
 }
-
+#veg::after,#Nonveg::after{
+  content:'';
+}
+#veg,#Nonveg{
+  display: flex;
+  justify-content: center;
+}
 .menu .menu-content::after {
   content: "       ................................................   "
  "...................................................................."
